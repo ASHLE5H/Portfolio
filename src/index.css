@@ -1,0 +1,172 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─────────────────────────────────────────────────────────────
+   Design tokens.
+
+   These mirror `theme.extend.colors` in tailwind.config.js — that
+   file drives the utility classes used in JSX (bg-card, text-brown…),
+   this block drives the hand-written CSS below.
+
+   Deliberately NOT using @apply with custom colour utilities here:
+   Tailwind v3 config changes don't hot-reload through Vite, so an
+   @apply referencing a renamed token fails the whole stylesheet until
+   the dev server is restarted. Plain properties can't break that way.
+   If you rename a colour, change it in both places.
+   ───────────────────────────────────────────────────────────── */
+:root {
+  --c-bg: #fff8f5;
+  --c-card: #ffe9de;
+  --c-card2: #ffefe3;
+  --c-deep: #ffd2be;
+  --c-brown: #99470f;
+  --c-orange: #ff5722;
+  --c-ink: #27140a;
+  --c-body: #505050;
+  --c-mute: #7a7a7a;
+
+  --shell-x: clamp(0.75rem, 2.2vw, 1.75rem);
+  --radius-card: 18px;
+}
+
+@layer base {
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  /* Lenis drives scrolling itself — native smooth scrolling fights it */
+  html.lenis,
+  html.lenis body {
+    height: auto;
+  }
+  .lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+  }
+  .lenis.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+  }
+  .lenis.lenis-stopped {
+    overflow: hidden;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+    }
+  }
+
+  body {
+    background-color: var(--c-bg);
+    color: var(--c-body);
+    font-family: Inter, system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background: var(--c-deep);
+    color: var(--c-brown);
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--c-bg);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--c-deep);
+    border-radius: 999px;
+    border: 2px solid var(--c-bg);
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #ffc8a3;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--c-orange);
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
+}
+
+@layer components {
+  /* Two container widths, measured off the reference:
+     the nav + hero sit in a narrower column, while the project grid and the
+     closing card break out wider — they visibly overhang the nav card. */
+  .shell {
+    width: 100%;
+    /* 1436px of card + 2 × 28px gutter — the reference's narrow column */
+    max-width: 1492px;
+    margin-inline: auto;
+    padding-inline: var(--shell-x);
+  }
+
+  .shell-wide {
+    width: 100%;
+    /* 1672px of card + 2 × 28px gutter — the wider break-out column */
+    max-width: 1728px;
+    margin-inline: auto;
+    padding-inline: var(--shell-x);
+  }
+
+  /* The bento card — the core building block of the whole page */
+  .bento {
+    position: relative;
+    border-radius: var(--radius-card);
+    background-color: var(--c-card);
+    padding: 1.5rem;
+  }
+
+  @media (min-width: 640px) {
+    .bento {
+      padding: 1.75rem;
+    }
+  }
+
+  /* Small uppercase tracked label */
+  .eyebrow {
+    font-family: Inter, system-ui, sans-serif;
+    font-size: 0.6875rem;
+    line-height: 1.1;
+    letter-spacing: 0.14em;
+    font-weight: 500;
+    text-transform: uppercase;
+  }
+
+  /* Underline that wipes in from the left on hover */
+  .link-wipe {
+    position: relative;
+    display: inline-block;
+  }
+  .link-wipe::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    height: 1px;
+    width: 100%;
+    background: currentColor;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .link-wipe:hover::after,
+  .link-wipe:focus-visible::after {
+    transform: scaleX(1);
+  }
+}
