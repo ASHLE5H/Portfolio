@@ -236,5 +236,6 @@ function TerminalArt({ accent }) {
 export default function ProjectArt({ art, accent = '#99470F' }) {
   if (art === 'chat') return <ChatArt accent={accent} />
   if (art === 'image') return <ImageArt accent={accent} />
-  return <TerminalArt accent={accent} />
+  if (art === 'terminal') return <TerminalArt accent={accent} />
+  return <ImageArt accent={accent} />
 }

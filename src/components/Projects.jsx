@@ -1,9 +1,13 @@
-import { projects } from '../data/content'
+import { projects , profile } from '../data/content'
+import { thumbFor } from '../lib/thumbs'
 import { ArrowUpRight } from './Glyph'
 import ProjectArt from './ProjectArt'
 import Reveal from './Reveal'
 
 function ProjectCard({ project }) {
+  // A real screenshot when src/thumbnails has one, the drawn mockup otherwise.
+  const thumb = thumbFor(project.id)
+
   return (
     <a
       href={project.link}
@@ -14,7 +18,16 @@ function ProjectCard({ project }) {
       {/* artwork */}
       <div className="relative overflow-hidden rounded-inner">
         <div className="transition-transform duration-[900ms] ease-smooth group-hover:scale-[1.035]">
-          <ProjectArt art={project.art} accent={project.accent} />
+          {thumb ? (
+            <img
+              src={thumb}
+              alt={`${project.title} preview`}
+              loading="lazy"
+              className="aspect-[320/165] w-full object-cover"
+            />
+          ) : (
+            <ProjectArt art={project.art} accent={project.accent} />
+          )}
         </div>
 
         {/* optional status, top right */}
@@ -67,7 +80,7 @@ export default function Projects() {
       <Reveal className="mb-6 flex flex-wrap items-baseline justify-between gap-3 px-1 sm:mb-7">
         <h2 className="font-display text-sect font-bold text-brown">Featured Projects</h2>
         <a
-          href={projects[0].link}
+          href={profile?.github}
           target="_blank"
           rel="noreferrer noopener"
           className="link-wipe inline-flex items-center gap-1.5 font-sans text-[13px] font-medium uppercase tracking-[0.09em] text-orange"
