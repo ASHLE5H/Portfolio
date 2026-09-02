@@ -29,11 +29,11 @@ export default {
         closing: ['clamp(2rem, 3.9vw, 3.4rem)', { lineHeight: '1.16', letterSpacing: '-0.03em' }],
       },
       borderRadius: {
-        card: '18px',
-        inner: '14px',
+        card: '1.125rem',
+        inner: '0.875rem',
         pill: '999px',
       },
-      maxWidth: { shell: '1480px' },
+      maxWidth: { shell: '92.5rem' },
       transitionTimingFunction: { smooth: 'cubic-bezier(0.22, 1, 0.36, 1)' },
       keyframes: {
         spinSlow: { to: { transform: 'rotate(360deg)' } },

@@ -51,7 +51,7 @@ function Portrait({ delay, className = '' }) {
   return (
     <Card delay={delay} className={`overflow-hidden !p-0 ${className}`}>
       {failed ? (
-        <div className="flex h-full min-h-[240px] w-full flex-col items-center justify-center gap-4 bg-deep/60 p-6 text-center">
+        <div className="flex h-full min-h-[15rem] w-full flex-col items-center justify-center gap-4 bg-deep/60 p-6 text-center">
           <Mark className="h-12 w-12 text-orange" />
           <p className="font-serif text-lg italic text-brown">{profile.name}</p>
           <p className="eyebrow text-brown/50">Add /portrait.jpg</p>
@@ -62,7 +62,7 @@ function Portrait({ delay, className = '' }) {
           alt={`Portrait of ${profile.name}`}
           onError={() => setFailed(true)}
           loading="eager"
-          className="h-full min-h-[240px] w-full object-cover"
+          className="h-full min-h-[15rem] w-full object-cover"
         />
       )}
     </Card>
@@ -112,7 +112,7 @@ function ScrollBadge() {
 
 export default function Bento() {
   return (
-    <section id="top" className="shell pt-4 lg:pt-[25px]">
+    <section id="top" className="shell pt-4 lg:pt-[1.5625rem]">
       {/*
         Nested grids, because the reference does NOT use one uniform 3-column
         grid — the left/middle split changes between rows while the right
@@ -126,14 +126,14 @@ export default function Bento() {
         wrapper is `display: contents`, so all cards flatten back into one
         column and stay individually orderable.
       */}
-      <div className="grid gap-4 sm:gap-5 lg:min-h-[calc(100vh-9rem)] lg:grid-cols-[982fr_429fr] lg:gap-[25px]">
+      <div className="grid gap-4 sm:gap-5 lg:min-h-[calc(100vh-9rem)] lg:grid-cols-[982fr_429fr] lg:gap-[1.5625rem]">
         {/* ── left region ─────────────────────────────── */}
-        <div className="contents lg:grid lg:grid-rows-[0.87fr_1fr] lg:gap-[25px]">
+        <div className="contents lg:grid lg:grid-rows-[0.87fr_1fr] lg:gap-[1.5625rem]">
           {/* row 1 — headline + portrait, same height */}
-          <div className="contents lg:grid lg:grid-cols-[536fr_420fr] lg:gap-[25px]">
+          <div className="contents lg:grid lg:grid-cols-[536fr_420fr] lg:gap-[1.5625rem]">
             <Card
               delay={DELAY.headline}
-              className="order-1 flex min-h-[260px] flex-col justify-between lg:order-none lg:min-h-0"
+              className="order-1 flex min-h-[16.25rem] flex-col justify-between lg:order-none lg:min-h-0"
             >
               <Mark className="h-10 w-10 animate-float text-orange sm:h-11 sm:w-11" />
               <h1 className="mt-10 font-display text-heroLarge font-bold text-brown">
@@ -143,28 +143,28 @@ export default function Bento() {
               </h1>
             </Card>
 
-            <Portrait delay={DELAY.portrait} className="order-2 min-h-[240px] lg:order-none lg:min-h-0" />
+            <Portrait delay={DELAY.portrait} className="order-2 min-h-[15rem] lg:order-none lg:min-h-0" />
           </div>
 
           {/* row 2 — intro + the status/Say Hi stack */}
-          <div className="contents lg:grid lg:grid-cols-[586fr_373fr] lg:gap-[25px]">
+          <div className="contents lg:grid lg:grid-cols-[586fr_373fr] lg:gap-[1.5625rem]">
             <Card
               delay={DELAY.intro}
               className="order-3 flex flex-col justify-between lg:order-none"
             >
               <Glyph name="spark" className="h-8 w-8 text-orange" />
-              <p className="mt-10 font-sans text-[16px] leading-[1.55] text-body sm:text-[19px]">
-                <span className="font-serif text-[18px] italic text-brown sm:text-[22px]">
+              <p className="mt-10 font-sans text-[1rem] leading-[1.55] text-body sm:text-[1.1875rem]">
+                <span className="font-serif text-[1.125rem] italic text-brown sm:text-[1.375rem]">
                   {profile.greeting}
                 </span>
                 {" "} , {profile.intro}
               </p>
             </Card>
 
-            <div className="contents lg:flex lg:flex-col lg:gap-[25px]">
+            <div className="contents lg:flex lg:flex-col lg:gap-[1.5625rem]">
               <Card delay={DELAY.status} className="order-4 flex items-start gap-3.5 !py-5 lg:order-none items-center">
-                <Glyph name="terminal" className="mt-0.5 h-[22px] w-[22px] shrink-0 text-orange" />
-                <p className="font-sans text-[14.5px] leading-snug text-body">{profile.now}</p>
+                <Glyph name="terminal" className="mt-0.5 h-[1.375rem] w-[1.375rem] shrink-0 text-orange" />
+                <p className="font-sans text-[0.90625rem] leading-snug text-body">{profile.now}</p>
               </Card>
 
               <motion.a
@@ -173,9 +173,9 @@ export default function Bento() {
                 initial="hidden"
                 animate="show"
                 transition={{ ...SPRING, delay: DELAY.sayHi }}
-                className="bento group order-5 flex min-h-[150px] flex-col justify-between bg-deep transition-colors duration-500 ease-smooth hover:bg-deep/70 lg:order-none lg:min-h-0 lg:flex-1"
+                className="bento group order-5 flex min-h-[9.375rem] flex-col justify-between bg-deep transition-colors duration-500 ease-smooth hover:bg-deep/70 lg:order-none lg:min-h-0 lg:flex-1"
               >
-                <span className="font-serif text-2xl italic text-brown sm:text-[26px]">Say Hi</span>
+                <span className="font-serif text-2xl italic text-brown sm:text-[1.625rem]">Say Hi</span>
                 <span className="flex justify-end">
                   <ArrowUpRight className="h-7 w-7 text-brown transition-transform duration-500 ease-smooth group-hover:translate-x-1 group-hover:-translate-y-1" />
                 </span>
@@ -185,9 +185,9 @@ export default function Bento() {
         </div>
 
         {/* ── right column · toolbox, socials, badge ──── */}
-        <div className="contents lg:flex lg:flex-col lg:gap-[25px]">
+        <div className="contents lg:flex lg:flex-col lg:gap-[1.5625rem]">
           <Card delay={DELAY.toolbox} className="order-6 lg:order-none lg:flex-1">
-            <h2 className="font-display text-[19px] font-bold tracking-[-0.02em] text-brown">
+            <h2 className="font-display text-[1.1875rem] font-bold tracking-[-0.02em] text-brown">
               Toolbox
             </h2>
             <ul className="mt-2">
@@ -198,13 +198,13 @@ export default function Bento() {
                 >
                   <Glyph
                     name={t.icon}
-                    className="h-[26px] w-[26px] shrink-0 text-orange transition-transform duration-500 ease-smooth group-hover:scale-110"
+                    className="h-[1.625rem] w-[1.625rem] shrink-0 text-orange transition-transform duration-500 ease-smooth group-hover:scale-110"
                   />
                   <span className="min-w-0">
-                    <span className="block font-sans text-[15px] font-medium text-orange">
+                    <span className="block font-sans text-[0.9375rem] font-medium text-orange">
                       {t.name}
                     </span>
-                    <span className="mt-0.5 block font-sans text-[14px] text-ink/70">{t.kind}</span>
+                    <span className="mt-0.5 block font-sans text-[0.875rem] text-ink/70">{t.kind}</span>
                   </span>
                 </li>
               ))}
@@ -216,9 +216,9 @@ export default function Bento() {
             initial="hidden"
             animate="show"
             transition={{ ...SPRING, delay: DELAY.socials }}
-            className="order-7 flex items-center gap-4 sm:gap-5 lg:order-none lg:gap-[25px]"
+            className="order-7 flex items-center gap-4 sm:gap-5 lg:order-none lg:gap-[1.5625rem]"
           >
-            <ul className="grid min-w-0 flex-1 grid-cols-4 gap-4 sm:gap-5 lg:w-[174px] lg:flex-none lg:grid-cols-2 lg:gap-[25px]">
+            <ul className="grid min-w-0 flex-1 grid-cols-4 gap-4 sm:gap-5 lg:w-[10.875rem] lg:flex-none lg:grid-cols-2 lg:gap-[1.5625rem]">
               {socials.map((s) => (
                 <li key={s.label}>
                   <a
@@ -229,7 +229,7 @@ export default function Bento() {
                     title={s.label}
                     className="flex aspect-square w-full items-center justify-center rounded-inner bg-card text-orange transition-all duration-500 ease-smooth hover:-translate-y-1 hover:bg-deep"
                   >
-                    <Glyph name={s.icon} className="h-[26px] w-[26px]" />
+                    <Glyph name={s.icon} className="h-[1.625rem] w-[1.625rem]" />
                   </a>
                 </li>
               ))}
@@ -238,7 +238,7 @@ export default function Bento() {
             {/* the badge sits centred in the space left over beside the
                 socials, which is where the reference puts it */}
             <div className="flex flex-1 justify-end lg:justify-center">
-              <div className="w-[108px] shrink-0 sm:w-[136px] lg:w-[160px]">
+              <div className="w-[6.75rem] shrink-0 sm:w-[8.5rem] lg:w-[10rem]">
                 <ScrollBadge />
               </div>
             </div>
