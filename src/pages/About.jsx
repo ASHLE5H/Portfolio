@@ -37,7 +37,7 @@ export default function About() {
             <div className="flex items-center gap-4">
               <Mark className="h-11 w-11 shrink-0 text-orange" />
               <p className="font-serif text-2xl italic text-brown sm:text-[30px]">
-                Hello! {profile.greeting}!
+                Hello!
               </p>
             </div>
 

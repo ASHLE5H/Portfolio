@@ -136,7 +136,7 @@ export default function Bento() {
               className="order-1 flex min-h-[260px] flex-col justify-between lg:order-none lg:min-h-0"
             >
               <Mark className="h-10 w-10 animate-float text-orange sm:h-11 sm:w-11" />
-              <h1 className="mt-10 font-display text-hero font-bold text-brown">
+              <h1 className="mt-10 font-display text-heroLarge font-bold text-brown">
                 {profile.headline[0]}
                 <br />
                 {profile.headline[1]}
@@ -157,7 +157,7 @@ export default function Bento() {
                 <span className="font-serif text-[18px] italic text-brown sm:text-[22px]">
                   {profile.greeting}
                 </span>
-                , {profile.intro}
+                {" "} , {profile.intro}
               </p>
             </Card>
 

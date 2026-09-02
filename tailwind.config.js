@@ -23,7 +23,7 @@ export default {
       fontSize: {
         micro: ['0.6875rem', { lineHeight: '1.1', letterSpacing: '0.14em' }],
         hero: ['clamp(1.9rem, 3.4vw, 3rem)', { lineHeight: '1.14', letterSpacing: '-0.03em' }],
-        heroLarge: ['clamp(2.2rem, 4vw, 4rem)', { lineHeight: '1.1', letterSpacing: '-0.03em' }],
+        heroLarge: ['clamp(2.3rem,3.7vw,3.5rem)', { lineHeight: '1.1', letterSpacing: '-0.03em' }],
         sect: ['clamp(1.5rem, 2.4vw, 2rem)', { lineHeight: '1.15', letterSpacing: '-0.02em' }],
         cardTitle: ['clamp(1.4rem, 2.1vw, 2rem)', { lineHeight: '1.18', letterSpacing: '-0.025em' }],
         closing: ['clamp(2rem, 3.9vw, 3.4rem)', { lineHeight: '1.16', letterSpacing: '-0.03em' }],

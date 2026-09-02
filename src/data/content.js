@@ -7,7 +7,7 @@ export const profile = {
   name: 'Ashlesh D Hegde',
   role: 'Full Stack Developer',
   location: 'Mangalore, India',
-  greeting: 'Namaskara',
+  greeting: 'Hello',
   email: 'ashlesh208@gmail.com',
   phone: '+91 8660497382',
   github: 'https://github.com/ASHLE5H',
@@ -18,8 +18,8 @@ export const profile = {
   portrait: '/portrait.jpg', // drop your photo here; a mark card shows if missing
   headline: ['Code, Scale,', 'Ship.'],
   intro:
-    'I am Ashlesh, a Full Stack Developer based in Mangalore, India. I build scalable web applications and work with emerging AI — from Machine Learning pipelines to Generative AI products.',
-  now: 'Currently engineering Full Stack @ Sky360.AI',
+    'I’m Ashlesh, a Full Stack Developer who likes building things that make you stop and think about the engineering behind them. I enjoy figuring things out, breaking things apart, rebuilding them better, and eventually arriving at something that feels deceptively simple.',
+  now: 'Currently Software Engineer @ Sky360.AI',
 }
 
 export const nav = [
@@ -42,6 +42,7 @@ export const toolbox = [
   { name: 'MongoDB · PostgreSQL', kind: 'Data layer', icon: 'db' },
   { name: 'Python', kind: 'ML and scripting', icon: 'py' },
   { name: 'Docker · Git', kind: 'Ship and version', icon: 'box' },
+  { name:'ML & Gen AI' , kind:'Models , prediction and LLMs'},
   { name: 'Tableau · Power BI', kind: 'Analytics', icon: 'chart' },
 ]
 
@@ -95,8 +96,8 @@ export const projects = [
 ]
 
 export const aboutStatements = [
-  "I'm Ashlesh, a full stack developer based in Mangalore, building web products end to end — data model, API, and the last few pixels of the interface.",
-  'Beyond the stack, I like machine learning, generative AI, and the weekend rush of a good hackathon.',
+  "I'm Ashlesh, a full stack developer based in Mangalore, building web products end to end data model, API, and the last few pixels of the interface.",
+  'My world revolves around full stack engineering, AI, and the space between a problem and its solution.',
 ]
 
 export const facts = [
@@ -163,4 +164,4 @@ export const achievements = [
 
 export const badgeText = 'SCROLL DOWN • TO CHECK OUT MY WORK • '
 
-export const closingHeadline = ['This portfolio is', 'a conversation starter.']
+export const closingHeadline = ['Place where', 'conversations begin.']    
