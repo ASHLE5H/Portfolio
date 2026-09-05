@@ -15,7 +15,7 @@ export const profile = {
   linkedin: 'https://linkedin.com/in/ashle5h',
   linkedinHandle: 'ashle5h',
   resume: '/Ashlesh-D-Hegde-Resume.pdf',
-  portrait: '/portrait.jpg', // drop your photo here; a mark card shows if missing
+  portrait: '/profile.jpeg', // drop your photo here; a mark card shows if missing
   headline: ['Code, Scale,', 'Ship.'],
   intro:
     'I’m Ashlesh, a Full Stack Developer who likes building things that make you stop and think about the engineering behind them. I enjoy figuring things out, breaking things apart, rebuilding them better, and eventually arriving at something that feels deceptively simple.',
