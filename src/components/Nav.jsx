@@ -1,11 +1,11 @@
-import { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
-import { AnimatePresence, motion } from 'framer-motion'
-import { nav, profile } from '../data/content'
-import Glyph from './Glyph'
+import { useEffect, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { AnimatePresence, motion } from "framer-motion";
+import { nav, profile } from "../data/content";
+import Glyph from "./Glyph";
 
 function NavLabel({ item, showIcon }) {
-  if (!showIcon) return item.label
+  if (!showIcon) return item.label;
   return (
     <span className="relative inline-flex items-center">
       <Glyph
@@ -14,11 +14,11 @@ function NavLabel({ item, showIcon }) {
       />
       {item.label}
     </span>
-  )
+  );
 }
 
 function NavLink({ item, className, onClick, showIcon = false }) {
-  const content = <NavLabel item={item} showIcon={showIcon} />
+  const content = <NavLabel item={item} showIcon={showIcon} />;
 
   if (item.external) {
     return (
@@ -31,24 +31,34 @@ function NavLink({ item, className, onClick, showIcon = false }) {
       >
         {content}
       </a>
-    )
+    );
   }
   return (
     <Link to={item.to} className={className} onClick={onClick}>
       {content}
     </Link>
-  )
+  );
 }
 
 export default function Nav() {
-  const [open, setOpen] = useState(false)
+  const [open, setOpen] = useState(false);
+
+  const location = useLocation();
 
   useEffect(() => {
-    document.body.style.overflow = open ? 'hidden' : ''
+    document.body.style.overflow = open ? "hidden" : "";
     return () => {
-      document.body.style.overflow = ''
+      document.body.style.overflow = "";
+    };
+  }, [open]);
+
+  const handleNameClick = (e) => {
+    const isHomePage = location.pathname === "/";
+    if (isHomePage) {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: "smooth" });
     }
-  }, [open])
+  };
 
   return (
     <>
@@ -58,6 +68,7 @@ export default function Nav() {
           <nav className="flex items-center justify-between gap-4 rounded-card bg-card/95 px-6 py-4 shadow-[0_12px_34px_-20px_rgba(153,71,15,0.55)] backdrop-blur-md sm:px-8 sm:py-5">
             <Link
               to="/"
+              onClick={handleNameClick}
               className="font-display text-[17px] font-bold tracking-[-0.02em] text-brown sm:text-[19px]"
             >
               {profile.name}
@@ -78,7 +89,7 @@ export default function Nav() {
             <button
               type="button"
               onClick={() => setOpen((v) => !v)}
-              aria-label={open ? 'Close menu' : 'Open menu'}
+              aria-label={open ? "Close menu" : "Open menu"}
               aria-expanded={open}
               className="relative z-50 flex h-9 w-9 items-center justify-center rounded-full text-brown transition-colors duration-300 hover:bg-deep md:hidden"
             >
@@ -94,7 +105,9 @@ export default function Nav() {
                   className="block h-[1.8px] w-full rounded bg-current"
                 />
                 <motion.span
-                  animate={open ? { rotate: -45, y: -4.75 } : { rotate: 0, y: 0 }}
+                  animate={
+                    open ? { rotate: -45, y: -4.75 } : { rotate: 0, y: 0 }
+                  }
                   transition={{ duration: 0.32, ease: [0.22, 1, 0.36, 1] }}
                   className="block h-[1.8px] w-full origin-center rounded bg-current"
                 />
@@ -119,7 +132,11 @@ export default function Nav() {
                   key={item.label}
                   initial={{ opacity: 0, y: 16 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.06 + i * 0.06, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+                  transition={{
+                    delay: 0.06 + i * 0.06,
+                    duration: 0.5,
+                    ease: [0.22, 1, 0.36, 1],
+                  }}
                   className="border-b border-brown/12 last:border-0"
                 >
                   <NavLink
@@ -134,5 +151,5 @@ export default function Nav() {
         )}
       </AnimatePresence>
     </>
-  )
+  );
 }
