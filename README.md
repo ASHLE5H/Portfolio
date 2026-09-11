@@ -1,9 +1,3 @@
-Yeah — your current README is **way too implementation-heavy**. For a portfolio, I’d make it feel more like a project showcase: what it is, what you built, tech stack, features, screenshots, and how to run it.
-
- You can replace the whole README with something like this:
-
- Portfolio README✓
-
 # Ashlesh D Hegde — Portfolio
 
  A personal portfolio website designed to showcase my work, experience, skills, and projects.
