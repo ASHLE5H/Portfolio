@@ -57,7 +57,7 @@ export default function Closing() {
             <p className="mt-1.5 font-sans text-[15px] text-mute">{profile.role}</p>
           </div>
 
-          <ul className="flex items-center gap-4">
+          <ul className="grid w-fit grid-cols-2 gap-4 sm:flex sm:items-center">
             {socials.map((s) => (
               <li key={s.label}>
                 <a
